@@ -1,0 +1,73 @@
+<div class="container mt-5">
+    <form id="send-form" action="/form.php" method="POST" data-event="create" novalidate>
+        <div class="mb-3">
+            <label for="name" class="form-label">Product name</label>
+            <input type="text" class="form-control" name="name" id="name" required
+                   placeholder="Enter &quot;Product name&quot;">
+            <div class="invalid-feedback">
+                Please enter a name.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="quantity" class="form-label">Quantity in stock</label>
+            <input type="number" class="form-control" name="quantity" id="quantity" required
+                   min="0" step="1" value="1" placeholder="Enter &quot;Quantity in stock&quot;">
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price per item</label>
+            <input type="number" class="form-control" name="price" id="price" required
+                   min="0" value="1" placeholder="Enter &quot;Price per item&quot;">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <table class="table mt-5">
+        <thead>
+        <tr>
+            <th scope="col">Product name</th>
+            <th scope="col">Quantity in stock</th>
+            <th scope="col">Price per item</th>
+            <th scope="col">Datetime submitted</th>
+            <th scope="col">Total value</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody id="table-content"></tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="editForm" tabindex="-1" aria-labelledby="editFormLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form id="edit-product" action="/edit.php" method="POST" class="modal-content" data-event="edit">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editFormLabel">Edit product</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" name="id" id="edit_id">
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Product name</label>
+                    <input type="text" class="form-control" name="name" id="edit_name" required
+                           placeholder="Enter &quot;Product name&quot;">
+                </div>
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Quantity in stock</label>
+                    <input type="number" class="form-control" name="quantity" id="edit_quantity" required
+                           min="0" step="1" value="1" placeholder="Enter &quot;Quantity in stock&quot;">
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price per item</label>
+                    <input type="number" class="form-control" name="price" id="edit_price" required
+                           min="0" value="1" placeholder="Enter &quot;Price per item&quot;">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+    </div>
+</div>
+</div>
